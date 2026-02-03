@@ -1,0 +1,192 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 300px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: #0f0f0f;
+    color: #fff;
+    overflow: hidden;
+}
+
+.container {
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.logo {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+}
+
+h1 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: -0.3px;
+}
+
+/* Toggle Section */
+.toggle-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    background: #1a1a1a;
+    border-radius: 12px;
+    border: 1px solid #2a2a2a;
+    transition: all 0.2s ease;
+}
+
+.toggle-section:hover {
+    background: #202020;
+    border-color: #333;
+}
+
+.status-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+#status-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    transition: color 0.2s ease;
+}
+
+.status-desc {
+    font-size: 12px;
+    color: #888;
+    font-weight: 400;
+}
+
+/* Toggle Switch */
+.switch {
+    position: relative;
+    width: 44px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+.slider {
+    position: absolute;
+    inset: 0;
+    background: #2a2a2a;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slider:before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 2px;
+    top: 2px;
+    background: #666;
+    border-radius: 50%;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input:checked+.slider {
+    background: #e50914;
+}
+
+input:checked+.slider:before {
+    transform: translateX(20px);
+    background: #fff;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.2);
+}
+
+.slider:hover {
+    opacity: 0.9;
+}
+
+/* Refresh Hint */
+.refresh-hint {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    padding: 10px 12px;
+    background: rgba(229, 9, 20, 0.1);
+    border: 1px solid rgba(229, 9, 20, 0.2);
+    border-radius: 8px;
+    font-size: 12px;
+    color: #e50914;
+    font-weight: 500;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.refresh-hint svg {
+    flex-shrink: 0;
+    opacity: 0.8;
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.refresh-hint.show {
+    display: flex;
+}
+
+/* Disabled state */
+.toggle-section.disabled #status-text {
+    color: #888;
+}
+
+/* Status text color variations */
+#status-text.inactive {
+    color: #999;
+}
+
+/* Smooth transitions */
+.toggle-section,
+#status-text,
+.status-desc {
+    transition: all 0.2s ease;
+}

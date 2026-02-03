@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Netflix ScreenShare Fix",
+  "version": "1.1",
+  "author": "Nikolaos Papoutsakis",
+  "homepage_url": "https://github.com/npapoutsakis/netflix-screenshare-fix",
+  "description": "Prevents black screen on Discord ScreenShare",
+  "permissions": [
+    "scripting",
+    "activeTab",
+    "declarativeContent"
+  ],
+  "host_permissions": [
+    "*://*.netflix.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "128": "icon.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.netflix.com/*"
+      ],
+      "js": [
+        "injected.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": true
+    }
+  ]
+}

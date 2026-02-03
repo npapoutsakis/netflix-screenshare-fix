@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Netflix Screenshare Fix</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="icon.png" alt="Logo" class="logo">
+            <h1>Netflix Screenshare</h1>
+        </div>
+
+        <div class="toggle-section">
+            <div class="status-info">
+                <span id="status-text">Enabled</span>
+                <span class="status-desc">Discord screen share fix</span>
+            </div>
+            <label class="switch">
+                <input type="checkbox" id="toggle-fix" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="refresh-hint" id="refresh-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+            </svg>
+            Refresh page to apply
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>
